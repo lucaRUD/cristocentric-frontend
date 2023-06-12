@@ -1,0 +1,12 @@
+#article-card {
+
+    padding: 1.5rem;
+    border-radius: 15px;
+    padding-bottom: 2.5rem;
+    background-color: #424242;
+}
+
+.edit-article {
+    color: white;
+    appearance: none;
+}

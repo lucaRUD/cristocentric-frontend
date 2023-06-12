@@ -1,0 +1,24 @@
+<div class="content">
+    <div class="card" ><button (click)="createArticle()" class="btn btn-default animation-on-hover" style="width: 30%;">Add Article</button></div>
+    <div class="row gx-4 gx-lg-5 align-items-center my-5" id="article-card" *ngFor="let article of articles">
+        <div ngbDropdown class="d-inline-block" style="text-align:right">
+            <a  class="edit-article" id="dropdownBasic1" ngbDropdownToggle><i class="tim-icons  icon-minimal-down"></i></a>
+            <div ngbDropdownMenu  class="dropdown-menu">
+              <button ngbDropdownItem>Make public</button>
+              <button ngbDropdownItem>Archive</button>
+              <button ngbDropdownItem (click)="confirmDelete(article.id)">Delete</button>
+            </div>
+          </div>
+        <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="https://dummyimage.com/900x400/dee2e6/6c757d.jpg" alt="..."></div>
+        <div class="col-lg-5">
+       
+              
+            <h1 class="font-weight-light">{{article.title}}</h1>
+            <p>{{article.content}}</p>
+            <a class="btn btn-primary" (click)="viewArticle(article.id)">Edit article</a>
+            <div class="small text-muted">{{article.date}}</div>
+        </div>
+    </div>
+</div>
+
+

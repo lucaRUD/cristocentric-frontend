@@ -1,0 +1,47 @@
+<div class="content">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="text-center">#</th>
+          <th>Name</th>
+          <th>Job Position</th>
+          <th>Since</th>
+          <th class="text-right">Salary</th>
+          <th class="text-right">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orders">
+          <td class="text-center">{{ order.id }}</td>
+          <td>{{ order.order_data.name }}</td>
+          <td>{{ order.order_data.job_position }}</td>
+          <td>{{ order.order_data.since }}</td>
+          <td class="text-right">{{ order.order_data.salary }}</td>
+          <td class="td-actions text-right">
+            <button
+              type="button"
+              rel="tooltip"
+              class="btn btn-info btn-link btn-icon btn-sm"
+            >
+              <i class="tim-icons icon-single-02"></i>
+            </button>
+            <button
+              type="button"
+              rel="tooltip"
+              class="btn btn-success btn-link btn-icon btn-sm"
+            >
+              <i class="tim-icons icon-settings"></i>
+            </button>
+            <button
+              type="button"
+              rel="tooltip"
+              class="btn btn-danger btn-link btn-icon btn-sm"
+            >
+              <i class="tim-icons icon-simple-remove"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
