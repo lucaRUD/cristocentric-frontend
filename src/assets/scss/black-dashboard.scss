@@ -14,7 +14,7 @@
 
 */
 
- // Core
+
 
 @import "black-dashboard/custom/functions";
 @import "black-dashboard/bootstrap/functions";
@@ -25,7 +25,7 @@
 @import "black-dashboard/custom/mixins";
 @import "black-dashboard/bootstrap/mixins";
 
- // Bootstrap components
+ /*Bootstrap components*/
 
 @import "black-dashboard/bootstrap/root";
 @import "black-dashboard/bootstrap/reboot";
@@ -60,7 +60,7 @@
 @import "black-dashboard/bootstrap/utilities";
 @import "black-dashboard/bootstrap/print";
 
- // Custom components
+ /*Custom components*/
 
  @import "black-dashboard/custom/alerts.scss";
  @import "black-dashboard/custom/buttons.scss";
@@ -80,16 +80,16 @@
  @import "black-dashboard/custom/input-group.scss";
 
 
- // Vendor / Plugins
+ /* Vendor / Plugins */
 
 @import "black-dashboard/custom/vendor/plugin-perfect-scrollbar.scss";
 @import "black-dashboard/custom/vendor/plugin-animate-bootstrap-notify.scss";
 
-// light mode
+/*light mode*/
 
 @import "black-dashboard/custom/white-content.scss";
 
-// Cards
+/*Cards*/
 
 @import 'black-dashboard/custom/card';
 @import "black-dashboard/custom/cards/card-chart";
@@ -98,6 +98,6 @@
 @import "black-dashboard/custom/cards/card-task";
 @import "black-dashboard/custom/cards/card-plain";
 
-// Angular Differences
+/*Angular Differences*/
 
 @import "black-dashboard/angular-differences/angular-differences"

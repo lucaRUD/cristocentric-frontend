@@ -7,4 +7,6 @@ import { Component } from "@angular/core";
 })
 export class Dashboard1Component {
   title = "black-dashboard-angular";
+  shouldShowAppComponent: boolean = false;
+
 }

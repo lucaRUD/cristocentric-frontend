@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { BehaviorSubject } from 'rxjs';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { OrderData } from 'src/order';
 
 @Injectable({
@@ -28,12 +28,21 @@ export class OrderService {
   }
 
   createOrder(orderData: OrderData) {
-    return this.http.post('http://127.0.0.1:8000/accounts/orders/', orderData, {
+    console.log(orderData);
+
+    // Set the headers
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'X-CSRFToken': this.getCookie('csrftoken'),
+    });
+
+    return this.http.post('http://localhost:8000/accounts/orders/', orderData, {
+      headers: headers,
       withCredentials: true,
     });
   }
-
-  getCookie(name: string) {
+  // Helper function to retrieve the CSRF token from the cookie
+  private getCookie(name: string): string {
     let cookieValue = '';
     if (document.cookie && document.cookie !== '') {
       const cookies = document.cookie.split(';');
@@ -49,23 +58,40 @@ export class OrderService {
     }
     return cookieValue;
   }
-
   addOrderData(orderData: any) {
+    // Retrieve the CSRF token from the cookie
+    const csrfToken = this.getCookie('csrftoken');
+
+    // Create the request headers with the CSRF token
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'X-CSRFToken': this.getCookie('csrftoken'),
+      'X-CSRFToken': csrfToken,
     });
-    return this.http.post(
-      'http://127.0.0.1:8000/accounts/addorders/',
-      orderData,
-      {
-        headers,
-        withCredentials: true,
-      }
-    );
+
+    // Make the request with the headers
+    return this.http.post('http://localhost:8000/addorders/', orderData, {
+      headers: headers,
+      withCredentials: true,
+    });
   }
 
   getOrders() {
-    return this.http.get('http://127.0.0.1:8000/accounts/get-orders/');
+    return this.http.get('http://localhost:8000/accounts/get-orders/', {
+      withCredentials: true,
+    });
+  }
+
+  getProdigiOrders(orderIds: string[]) {
+    const params = new HttpParams().set('order_ids', orderIds.join(','));
+    return this.http.get('http://localhost:8000/accounts/order-details/', {
+      params,
+    });
+  }
+
+  cancelOrder(orderId: string): Observable<any> {
+    const url = `http://localhost:8000/accounts/cancel-order/`;
+    const data = { order_id: orderId };
+
+    return this.http.post(url, data, { withCredentials: true });
   }
 }

@@ -1,11 +1,21 @@
+.home-container{
+    min-height: 100vh;
+}
+
+
 .parallax-container {
     /* margin-top: 4%; */
     position: relative;
     height: 100vh;
     width: 100%;
     overflow: hidden;
+    min-height: 500px;
 }
 
+.video-container {
+    min-height: 100vh;
+    /* Set this to the desired minimum height */
+}
 .parallax-video {
     position: absolute;
     top: 0;
@@ -13,7 +23,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: -1;
+    z-index: 1;
 }
 
 .intro-buttons {
@@ -44,6 +54,7 @@
     top: 0;
     left: 0;
     width: 100%;
+    z-index: 2;
     height: 100%;
     display: flex;
     flex-direction: column;

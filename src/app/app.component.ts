@@ -60,4 +60,6 @@ export class AppComponent {
       (this.msg = data), console.log(this.msg);
     });
   }
+
+
 }

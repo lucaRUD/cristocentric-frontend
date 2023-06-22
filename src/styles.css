@@ -1,10 +1,7 @@
-/* You can add global styles to this file, and also import other style files */
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
-@import "~bootstrap/dist/css/bootstrap.css";
-
 html,
 body {
     height: 100%;
+    min-height: 100%;
     max-width: 100%;
     overflow-x: hidden;
     position: relative;
@@ -24,3 +21,53 @@ body {
 
     --mdc-dialog-container-color: rgb(59, 59, 59);
 }
+
+.ql-snow * {
+    color: black;
+    background-color: white;
+}
+
+.ql-toolbar.ql-snow {
+    background-color: white;
+}
+
+.ql-editor {
+    height: 500px;
+    color: black;
+}
+
+.card {
+    color: black;
+}
+
+elemtent.style {
+    top: 0px;
+}
+
+.sidebar {
+    background-color: aqua;
+}
+
+header{
+    margin-bottom: 0;
+}
+
+.mdc-menu-surface {
+    background-color: var(--mdc-theme-surface, rgb(46, 46, 46));
+    color: var(--mdc-theme-on-surface, #fff);
+  }
+
+  a {
+    color: white;
+    font-weight: 300;
+
+    &:hover,
+    &:focus {
+        color: grey;
+    }
+}
+
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import "~bootstrap/dist/css/bootstrap.css";
+

@@ -127,6 +127,8 @@ export class AuthService {
   get user() {
     return this._user.asObservable();
   }
+
+  
   getUserData(): Observable<User> {
     return this.http.get<User>(this.getUserUrl, { withCredentials: true });
   }

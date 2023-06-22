@@ -17,7 +17,11 @@ import { ArticlesComponent } from './pages/articles/articles.component';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { ArticleEditorComponent } from './pages/article-editor/article-editor.component';
-import { ConfirmationDialogComponent } from './pages/confirmation-dialog/confirmation-dialog.component'
+import { ConfirmationDialogComponent } from './pages/confirmation-dialog/confirmation-dialog.component';
+import { EventsComponent } from './pages/events/events.component';
+import { EventEditorComponent } from './pages/event-editor/event-editor.component';
+import { SavedEventsComponent } from './pages/saved-events/saved-events.component';
+import { OrdersComponent } from './pages/orders/orders.component'
 
 
 

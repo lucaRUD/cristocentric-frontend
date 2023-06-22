@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 declare interface RouteInfo {
   path: string;
@@ -7,61 +8,49 @@ declare interface RouteInfo {
   class: string;
 }
 export const ROUTES: RouteInfo[] = [
+  // {
+  //   path: '/dashboard',
+  //   title: 'Dashboard',
+  //   icon: 'icon-chart-pie-36',
+  //   class: '',
+  // },
   {
-    path: '/dashboard',
-    title: 'Dashboard',
-    icon: 'icon-chart-pie-36',
-    class: '',
-  },
-  {
-    path: '/user',
+    path: 'dashboard/user',
     title: 'User Profile',
     icon: 'icon-single-02',
     class: '',
   },
   {
-    path: '/articles',
+    path: 'dashboard/saved-events',
+    title: 'Saved events',
+    icon: 'icon-calendar-60',
+    class: '',
+  },
+  {
+    path: 'dashboard/articles',
     title: 'Articles',
     icon: 'icon-paper',
     class: '',
   },
   {
-    path: '/orders',
+    path: 'dashboard/events',
+    title: 'Events',
+    icon: 'icon-world',
+    class: '',
+  },
+  {
+    path: 'dashboard/orders',
     title: 'Orders',
     icon: 'icon-cart',
     class: '',
   },
   {
-    path: '/icons',
+    path: 'dashboard/icons',
     title: 'Icons',
     icon: 'icon-atom',
     class: '',
   },
-  {
-    path: '/maps',
-    title: 'Maps',
-    icon: 'icon-pin',
-    class: '',
-  },
-  {
-    path: '/notifications',
-    title: 'Notifications',
-    icon: 'icon-bell-55',
-    class: '',
-  },
 
-  {
-    path: '/tables',
-    title: 'Table List',
-    icon: 'icon-puzzle-10',
-    class: '',
-  },
-  {
-    path: '/typography',
-    title: 'Typography',
-    icon: 'icon-align-center',
-    class: '',
-  },
 ];
 
 @Component({
@@ -70,13 +59,35 @@ export const ROUTES: RouteInfo[] = [
   styleUrls: ['./sidebar.component.css'],
 })
 export class SidebarComponent implements OnInit {
-  menuItems!: any[];
+  menuItems!: RouteInfo[];
 
-  constructor() {}
+  constructor(private authService: AuthService) {}
 
   ngOnInit() {
-    this.menuItems = ROUTES.filter((menuItem) => menuItem);
+    this.authService.getAuthStatus().subscribe((isLoggedIn: boolean) => {
+      if (isLoggedIn) {
+        this.authService.getUserData().subscribe((user) => {
+          const isStaff = user?.is_staff || false;
+          this.menuItems = ROUTES.filter(
+            (menuItem) =>
+              menuItem &&
+              (menuItem.path !== 'dashboard/articles' ||
+                isStaff) && // Show "Articles" route only for staff members
+              (menuItem.path !== 'dashboard/events' ||
+                isStaff) // Show "Events" route only for staff members
+          );
+        });
+      } else {
+        this.menuItems = ROUTES.filter(
+          (menuItem) =>
+            menuItem &&
+            menuItem.path !== 'dashboard/articles' &&
+            menuItem.path !== 'dashboard/events'
+        );
+      }
+    });
   }
+
   isMobileMenu() {
     if (window.innerWidth > 991) {
       return false;

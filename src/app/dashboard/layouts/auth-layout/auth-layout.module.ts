@@ -5,6 +5,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthLayoutRoutes } from './auth-layout.routing';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from "@angular/common/http";
+import { QuillModule } from 'ngx-quill';
+
 
 @NgModule({
   imports: [
@@ -12,7 +14,8 @@ import { HttpClientModule } from "@angular/common/http";
     RouterModule.forChild(AuthLayoutRoutes),
     FormsModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    QuillModule.forRoot()
   ],
   declarations: [
   ]
