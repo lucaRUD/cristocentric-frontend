@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -31,28 +32,30 @@ export class LoginComponent implements OnInit {
     this.returnUrl = this.route.snapshot.queryParamMap.get('returnUrl');
   }
 
-  onSubmit() {
-    console.log('onSubmit called');
-    this.authService.login(this.username, this.password).subscribe(
-      (response) => {
-        // handle successful login
-        // Set user as logged in and set user data
-        this.authService.setLoggedIn(true);
-        this.authService.setUser(response);
-        this.authService.getUserData();
-        location.reload();
+  onSubmit(loginForm: NgForm) {
+    if (loginForm.valid) {
+      console.log('onSubmit called');
+      this.authService.login(this.username, this.password).subscribe(
+        (response) => {
+          // handle successful login
+          // Set user as logged in and set user data
+          this.authService.setLoggedIn(true);
+          this.authService.setUser(response);
+          this.authService.getUserData();
+          location.reload();
 
-        if (this.returnUrl) {
-          this.router.navigateByUrl(this.returnUrl);
-        } else {
-          this.router.navigate(['/home']);
+          if (this.returnUrl) {
+            this.router.navigateByUrl(this.returnUrl);
+          } else {
+            this.router.navigate(['/home']);
+          }
+        },
+        (error) => {
+          console.log('login failed');
+          this.error = 'Invalid username or password';
         }
-      },
-      (error) => {
-        console.log('login failed');
-        this.error = 'Invalid username or password';
-      }
-    );
+      );
+    }
   }
 
   loginWithGoogle() {

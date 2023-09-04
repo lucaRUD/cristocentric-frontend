@@ -1,14 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit{
   check_url = 'http://localhost:8000/accounts/check-fields/';
   username: string = '';
   first_name: string = '';
@@ -19,6 +20,7 @@ export class RegisterComponent {
   phone_number: string = '';
   bio: string = 'Insert bio here...';
   birth_date!: Date;
+  maxDate!: string;
   emailExists = false;
   usernameExists = false;
   phoneNumberExists = false;
@@ -28,8 +30,14 @@ export class RegisterComponent {
     private http: HttpClient,
     private router: Router
   ) {}
+  ngOnInit(): void {
+    const today = new Date();
+    const minAge = 10;
+    const maxBirthDate = new Date(today.getFullYear() - minAge, today.getMonth(), today.getDate());
+    this.maxDate = maxBirthDate.toISOString().split('T')[0];
+  }
 
-  onSubmit() {
+  onSubmit(registerForm: NgForm) {
     // Check if email, username, and phone number already exist
     if (this.password !== this.confirm_password) {
       return;

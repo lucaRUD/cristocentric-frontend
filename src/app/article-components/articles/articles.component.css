@@ -11,11 +11,17 @@
     padding-bottom: 20.5rem;
     text-align: center;
     color: #fff;
-    background-image: url(src/assets/img/header.jpg);
+    z-index: 9999;
+    background:linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)),  url(src/assets/pozecristocentrichb/_DNC3752.jpg);
+
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-position: center center;
     background-size: cover;
+}
+
+.container-header h1 {
+    z-index: 10;
 }
 
 
@@ -107,4 +113,11 @@
     .button-54 {
         padding: 0.25em 0.75em;
     }
+}
+
+app-donate{
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
 }

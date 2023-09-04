@@ -10,9 +10,10 @@
   <span>{{ (authService.user | async)?.first_name }}</span>
   <a class="first_name" mat-button [matMenuTriggerFor]="userMenu">{{userFirstname}}</a>
   <mat-menu #userMenu="matMenu">
-  <button mat-menu-item routerLink="/dashboard/user" routerLinkActive="active" >Profile</button>
-  <button mat-menu-item>Orders</button>
-  <button mat-menu-item (click)="authService.logout()">Logout</button>
+  <button mat-menu-item routerLink="/dashboard/user" routerLinkActive="active" >PROFILE</button>
+  <button mat-menu-item routerLink="/dashboard/orders" routerLinkActive="active" >ORDERS</button>
+  <button mat-menu-item routerLink="/dashboard/saved-events" routerLinkActive="active" >SAVED EVENTS</button>
+  <button mat-menu-item (click)="authService.logout()">LOGOUT</button>
   </mat-menu>
  
   <!-- Add a cart icon with the number of items in the cart -->
@@ -34,7 +35,7 @@
   <button mat-menu-item><a routerLink="/store" routerLinkActive="active">STORE</a></button>
   <button mat-menu-item><a routerLink="/articles" routerLinkActive="active">ARTICLES</a></button>
   <button mat-menu-item><a routerLink="/events" routerLinkActive="active">EVENTS</a></button>
-  <button mat-menu-item><a routerLink="/dashboard/user" routerLinkActive="active" >Profile</a></button>
+  <button mat-menu-item><a routerLink="/dashboard/user" routerLinkActive="active" >PROFILE</a></button>
   <button mat-menu-item><a routerLink="/cart" routerLinkActive="active">
     <mat-icon>shopping_cart</mat-icon>
     <span class="cart-badge">{{ cartItemCount }}</span>

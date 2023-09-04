@@ -44,13 +44,6 @@ export const ROUTES: RouteInfo[] = [
     icon: 'icon-cart',
     class: '',
   },
-  {
-    path: 'dashboard/icons',
-    title: 'Icons',
-    icon: 'icon-atom',
-    class: '',
-  },
-
 ];
 
 @Component({

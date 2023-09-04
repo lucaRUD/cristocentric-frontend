@@ -51,6 +51,7 @@ ul {
 
 .cart_section {
     width: 100%;
+    height: 85vh;
     padding-top: 93px;
     padding-bottom: 111px;
     background: linear-gradient(#7b003b, #0a0040);

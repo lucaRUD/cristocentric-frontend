@@ -32,7 +32,7 @@ body {
     flex: 1;
     background-color: black;
     transition: 1s;
-    background-image: url(https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80);
+    background-image: url(src/assets/pozecristocentrichb/_DNC3742.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -156,4 +156,16 @@ body {
         padding: 20px 40px;
         width: 440px;
     }
+}
+
+
+#show-pass{
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+}
+
+#show-pass i{
+    margin-top: 4px;
+    margin-left: 5px;
 }

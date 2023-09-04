@@ -32,3 +32,6 @@
     object-fit: cover;
     object-position: left;
 }
+.card{
+    background-color: #424242;
+}

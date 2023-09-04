@@ -43,6 +43,7 @@ import { NgxScrollPositionRestorationModule } from 'ngx-scroll-position-restorat
 import { EventsComponent } from './event-components/events/events.component';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { OverlayContentComponent } from './event-components/overlay-content/overlay-content.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -71,6 +72,7 @@ import { OverlayContentComponent } from './event-components/overlay-content/over
     ProductsMiniComponent,
     EventsComponent,
     OverlayContentComponent,
+    AboutComponent,
 
 
   ],

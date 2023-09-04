@@ -27,7 +27,7 @@ export class ActivateAccountComponent implements OnInit {
     this.http.get(api_url, {}).subscribe(
       (response: any) => {
         if (response.status === 'success') {
-          this.activationMessage = 'Account activated successfully';
+          this.activationMessage = 'Account activated successfully!';
           this.success=true;
         } else {
           this.activationMessage = 'Invalid or expired token';

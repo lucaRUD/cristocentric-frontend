@@ -8,7 +8,7 @@ import { User } from 'src/user';
 })
 export class AuthService {
   private loginUrl = 'http://localhost:8000/accounts/login/';
-  private googleLoginUrl = 'http://localhost:8000/accounts/google/login/';
+  private googleLoginUrl = 'http://localhost:8000/accountssocial/google/login/';
   private RegisterUrl = 'http://localhost:8000/accounts/register/';
   private logoutUrl = 'http://localhost:8000/accounts/logout/';
   private getAuthStatusUrl = 'http://localhost:8000/accounts/get-auth-status/';

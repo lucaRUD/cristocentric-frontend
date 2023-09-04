@@ -34,7 +34,7 @@ body {
   flex: 1;
   background-color: black;
   transition: 1s;
-  background-image: url(src/assets/worshipbg.jpg);
+  background-image: url(src/assets/pozecristocentrichb/_DNC3730.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -182,4 +182,16 @@ body {
     padding: 20px 40px;
     width: 440px;
   }
+}
+
+.form-field-birth {
+  height: 40px;
+  padding: 0 px;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  font-family: 'Poppins', sans-serif;
+  outline: 0;
+  transition: 0.2s;
+  margin-top: 5px;
+  width: 40.5vh;
 }
